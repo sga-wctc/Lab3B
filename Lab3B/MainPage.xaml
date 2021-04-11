@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3B.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="When can I Legally Buy Alcohol!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <StackLayout RadioButtonGroup.GroupName="{Binding GroupName}"
+             RadioButtonGroup.SelectedValue="{Binding Selection}">
+            <Label Text="Select country for checking legal age" />
+            <RadioButton Content="U.S."
+                CheckedChanged="OnCountryCheckedChanged"
+                x:Name="RadioButton1"
+                Value="21" />
+            <RadioButton Content="Canada"
+                CheckedChanged="OnCountryCheckedChanged"
+                Value="18" />
+            <RadioButton Content="Germany"
+                 CheckedChanged="OnCountryCheckedChanged"
+                 Value="14" />
+            <RadioButton Content="England"
+                 CheckedChanged="OnCountryCheckedChanged"
+                 Value="19"/>
+            <Label x:Name="ageLabel">
+            </Label>
+        </StackLayout>
+
+        <Label Text= "Enter your age" />
+        <DatePicker x:Name="birthdayPicker"
+                    MinimumDate="01/01/1900"
+                    MaximumDate="01/01/2021"
+                    Format="MM-dd-yyyy"
+                    TextColor="Black"
+                    Margin="30, 0, 0, 30"  
+                    DateSelected="OnDateSelected" />
+        <Button Text="Calculate years" x:Name="Btn_years" Clicked="Btn_Clicked" />
+        <Label Text= "Calculate Years until permitted to dring alcohol - Press Calculate" x:Name="Lbl_years" />
+
+    </StackLayout>
+
+
+</ContentPage>
